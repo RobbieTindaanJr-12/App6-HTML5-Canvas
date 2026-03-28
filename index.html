@@ -46,8 +46,31 @@ function draw_rect() {
     ctx.fillStyle = "#BF5700"; // UT Burnt Orange
     ctx.fillRect(20, 20, 150, 100);
 }
+<!--Function to put name on the canvas-->
+function draw_name() {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    ctx.font = "20px Arial";
+    ctx.fillStyle = "black";
+    ctx.fillText("Robbie Tindaan Jr.", 10, 50);
+}
+<!--Function to load an image onto the canvas-->
+function draw_image() {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var img = new Image();
+    img.onload = function() {
+        ctx.drawImage(img, 50, 50, 100, 100);
+    };
+    img.src = "https://www.google.com/favicon.ico"; // Example image
+}
+<!--Function to clear the canvas-->
+function clear_canvas() {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
 </script>
-
 
 
 <style>	
@@ -81,6 +104,15 @@ function draw_rect() {
 	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
  	
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+	
+<!--Code for buttons-->
+<canvas id="myCanvas" width="300" height="250"></canvas>
+
+	<div class="w3-container">
+		<button onclick="draw_rect();" class="w3-button w3-grey w3-border">Draw Rectangle</button>
+		<button onclick="draw_name();" class="w3-button w3-grey w3-border">Draw Name</button>
+		<button onclick="draw_image();" class="w3-button w3-grey w3-border">Load Image</button>
+		<button onclick="clear_canvas();" class="w3-button w3-grey w3-border">Clear Canvas</button>
 
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
