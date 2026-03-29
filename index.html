@@ -39,6 +39,13 @@ var docMod = document.lastModified; // loads last modified time stamp into docMo
 alert("This file last modified " + docMod); // generates alert box with time stamp. If annoying, comment out this entire line.
 console.log("This file last modified " + docMod); // generates message in javaScript console (found in developers tools) with time stamp. 
 
+<!--Global variable for the image-->
+    var longhornImage = new Image();
+    
+<!--Set the source to the provided image file-->
+<!--image_1.png must be in the same folder as this HTML file.-->
+    longhornImage.src = 'image_1.png';
+
 <!--Function to draw a rectangle on the canvas-->
 function draw_rect() {
     var canvas = document.getElementById("myCanvas");
@@ -54,16 +61,15 @@ function draw_name() {
     ctx.fillStyle = "black";
     ctx.fillText("Robbie Tindaan Jr.", 10, 50);
 }
-<!--Function to load an image onto the canvas-->
-function draw_image() {
-    var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
-    var img = new Image();
-    img.onload = function() {
-        ctx.drawImage(img, 50, 50, 100, 100);
-    };
-    img.src = "https://www.google.com/favicon.ico"; // Example image
-}
+<!--Function to load the UT Longhorn image-->
+    function drawImage() {
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        
+        // Draw the image onto the canvas at position (10, 160)
+        // I set the display size to 150x100 pixels to fit the canvas.
+        ctx.drawImage(longhornImage, 10, 160, 150, 100);
+    }
 <!--Function to clear the canvas-->
 function clear_canvas() {
     var canvas = document.getElementById("myCanvas");
@@ -91,6 +97,13 @@ function clear_canvas() {
     left: 0vw;
     z-index: 1;
 }
+<!--Adding border-->
+#myCanvas {
+        border: 2px solid #000000;
+        background-color: #f9f9f9;
+        display: block;
+        margin: auto;
+    }
 </style>
 
 <body>
@@ -99,7 +112,7 @@ function clear_canvas() {
 </div>
 	
 <div id="content" class="w3-container">
-	<p>Content goes here.</p>
+	<p>This page will load the provided UT Longhorn logo.</p>
 		
 	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
  	
